@@ -1,0 +1,10 @@
+{
+  "name": "the-horse-below",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes serve . -l 8080",
+    "build": "node scripts/build.mjs"
+  }
+}

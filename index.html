@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Horse Below</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<canvas id="game" tabindex="0" aria-label="Underwater alien world, top-down view"></canvas>
+
+<div id="hud" hidden>
+  <div id="locname" aria-live="polite"></div>
+  <div id="hudbar">
+    <span id="discover"></span><span id="audiostat"></span>
+    <button id="btnEditor" title="Ctrl+D">Audio editor</button>
+    <button id="btnHelp" aria-label="Help">?</button>
+  </div>
+</div>
+<div id="toast" role="status"></div>
+
+<section id="title" class="overlay">
+  <div class="card-title">
+    <p class="kicker">an experiment in spatial sound</p>
+    <h1 id="h1">The Horse Below</h1>
+    <p class="desc">A horse, stranded on a planet that is entirely underwater. Ten places hum, ring and breathe around you. Walk, and listen.</p>
+    <button id="btnStart" class="primary big">BEGIN LISTENING</button>
+    <p class="hp">🎧 Headphones strongly recommended: sounds are placed in space around the horse.</p>
+    <p class="keys"><kbd>WASD</kbd> / <kbd>↑←↓→</kbd> move · <kbd>Ctrl</kbd>+<kbd>D</kbd> opens the audio editor · <kbd>Esc</kbd> closes it</p>
+  </div>
+</section>
+
+<section id="help" class="overlay" hidden>
+  <div class="card-title">
+    <h2>Controls</h2>
+    <p><kbd>WASD</kbd> / arrow keys: move the horse<br><kbd>Ctrl</kbd>+<kbd>D</kbd> (or the Audio editor button): assign your own sounds<br><kbd>Esc</kbd>: close this / the editor</p>
+    <p class="hp">Spatial sounds use HRTF rendering for headphones. It is an approximation, not a true binaural recording.</p>
+    <button id="btnHelpClose" class="primary">Back to the water</button>
+  </div>
+</section>
+
+<aside id="panel" hidden role="dialog" aria-modal="true" aria-label="Audio editor">
+  <header>
+    <h2>Audio editor</h2>
+    <div class="hbtns">
+      <button id="pExport">Export</button>
+      <label class="btn">Import<input id="pImport" type="file" accept=".json,application/json" hidden></label>
+      <button id="pStopAll">■ Stop preview</button>
+      <button id="pClose" aria-label="Close editor">✕</button>
+    </div>
+  </header>
+  <p class="note">Assignments are saved in this browser (IndexedDB). They are not part of the GitHub repo; use Export to back them up.</p>
+  <div id="pList"></div>
+</aside>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
